@@ -51,14 +51,27 @@ function checaSeUsuarioUsaCSS(usuario){
     }
     return false
 }
+//VERIFICA SE O USUÁRIO USA JS
+function checaSeusuarioUsaJS(usuario){
+    for (let i = 0; i < usuario.tecnologias.length; i++){
+        if(usuario.tecnologias[i] == "JS"){
+            return true
+        }
+    }
+    return false
+}
 // console.log(checaSeUsuarioUsaCSS(usuarios[0]))
 
 /* console.log(checaSeUsuarioUsaCSS(usuarios[0].tecnologias))
 */
-//PECORRE TODOS OS USUÁRIO DO ARRAY
+//PECORRE TODOS OS USUÁRIO DO ARRAY (##> Código Principal <##)
 for (let i = 0; i < usuarios.length; i++){
     const usuarioTrabalhaComCss = checaSeUsuarioUsaCSS(usuarios[i])
+    const usuarioTrabalhaComJS = checaSeusuarioUsaJS(usuarios[i])
     if (usuarioTrabalhaComCss){
         console.log(`O usuário ${usuarios[i].nome} trabalha com CSS`)
+    }
+    if (usuarioTrabalhaComJS){
+        console.log(`O usuário ${usuarios[i].nome} trabalha com JS`)
     }
 } 
